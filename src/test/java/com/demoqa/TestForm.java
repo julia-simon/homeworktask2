@@ -2,19 +2,17 @@ package com.demoqa;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TestForm extends TestBase {
 
     @Test
     void succesfullFillFormTest() {
         open("/automation-practice-form");
-
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         $("#firstName").setValue("Chandler");
         $("#lastName").setValue("Bing");
         $("#userEmail").setValue("bing@gmail.com");
